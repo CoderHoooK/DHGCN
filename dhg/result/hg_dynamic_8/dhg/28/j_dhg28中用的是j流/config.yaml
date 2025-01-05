@@ -1,0 +1,53 @@
+# command line: /home/hk/code/hyper-gcn/main.py
+
+base_lr: 0.1
+batch_size: 48
+clip_len: 128
+config: config/dhg.yaml
+data_path: /home/hk/data/DHG/DHG2016.pkl
+device:
+- 0
+feeder: feeders.feeder_dhg.Feeder
+ignore_weights: []
+is_14: false
+loss_type: CE
+lr_decay_rate: 0.1
+lr_ratio: 0.001
+modality: j
+model: model.hg_dynamic.Model
+model_args:
+  graph: graph.shrec17.Graph
+  graph_args:
+    labeling_mode: spatial
+  num_class: 28
+  num_person: 1
+  num_point: 22
+model_saved_name: ''
+nesterov: true
+num_epoch: 90
+num_worker: 8
+optimizer: SGD
+p_interval:
+- 0.5
+- 1
+phase: train
+print_log: true
+save_epoch: 30
+save_interval: 1
+save_score: false
+seed: 1
+show_topk:
+- 1
+- 5
+start_epoch: 0
+test_batch_size: 48
+train_feeder_args:
+  debug: false
+  randomrot: 0.2
+  split: train
+val_feeder_args:
+  split: val
+warm_up_epoch: 5
+weight_decay: 0.0005
+weights: null
+work_dir: work_dir/hg_dynamic_8/dhg/28/j
